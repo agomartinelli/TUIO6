@@ -14,7 +14,7 @@ where:
 - `x` is the system state vector,
 - `t` is time,
 - `wⱼ` are **unknown inputs**,
-- `g₀(x, t)` and `gʲ(x, t)` are smooth vector fields.
+- `g₀(x, t)` and `gʲ(x, t)` are analytic vector fields.
 
 This structure covers a wide range of real-world systems where not all inputs can be measured or controlled.
 
