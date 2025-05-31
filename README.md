@@ -8,7 +8,7 @@ This MATLAB toolbox computes the **observability codistribution** of a class of 
 
 The system dynamics are assumed to be of the following form:
 
-ẋ = g₀(x, t) + ∑ⱼ=1^m wⱼ * gʲ(x, t)
+ẋ = g₀(x, t) + \sum_{j=1}^{mw} wⱼ * gʲ(x, t)
 
 where:
 - `x` is the system state vector,
