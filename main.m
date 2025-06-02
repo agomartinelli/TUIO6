@@ -90,4 +90,12 @@ if ContinueAfter
     end
 end
 
+sys
+
+disp('Observability codistribution')
+sys.O
+
+disp('Symmetries (Orthogonal distribution)')
+null(sys.O)
+
 
