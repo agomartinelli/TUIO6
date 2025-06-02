@@ -7,24 +7,6 @@ syms St real%This is the variable time.
 
 
     
-% % % %================================
-% % %     % Define symbolic variables (states)
-% % %     syms Sx1 Sx2 Sx3 Sx4 Sx5 Sx6 Sx7 Sx8 Sx9 Sx10 real
-% % % 
-% % %     % State vector (user modifies based on the system)
-% % %     sys.x = [Sx1 Sx2 Sx3 Sx4 Sx5 Sx6 Sx7 Sx8 Sx9 Sx10]'; 
-% % %     % g0 vector (drift)
-% % %     sys.g0 = [0 Sx5 Sx6 Sx7 0 Sx8 Sx9 0 Sx10 0]';
-% % % 
-% % %     % Input field matrices (g^j, where j=1,...,mw)
-% % %     sys.g(:,1) = [Sx1 1 Sx1/Sx2 Sx1/Sx3 0 0 0 0 0 0]';
-% % %     sys.g(:,2) = [Sx2 Sx2/Sx1 1 Sx2/Sx3 Sx5 1 Sx5/Sx6 0 0 0]';
-% % %     sys.g(:,3) = [Sx3 Sx3/Sx1 Sx3/Sx2 1 Sx6 Sx6/Sx5 1 Sx8 1 0]';
-% % %     sys.g(:,4) = [Sx4 Sx4/Sx1 Sx4/Sx2 Sx4/Sx3 Sx7 Sx7/Sx5 Sx7/Sx6 Sx9 Sx9/Sx8 1]';
-% % % 
-% % %     % Output vector (user defines outputs, e.g., functions of state and, for TV systems, also time)
-% % %     sys.hobs = [Sx1^2 + Sx2, Sx2, Sx3]; % Example, modify as needed
-% % % %================================
 
 
 
@@ -44,7 +26,40 @@ sys.hobs=[SV, STu+STi];
 
 
 % % % %================================
-% % % %TIME VARIANT SYSTEM TAC
+% % % %Toggle SWITCH
+% % % syms Sx1 Sx2 SG1 SG2 Sk01 Sk02 Sk1 Sk2 Sa Sb real
+% % % sys.x=[Sx1 Sx2 SG1 SG2 Sk01 Sk02 Sk1 Sk2 Sa Sb]';
+% % % 
+% % % zeri=zeros(1,6);
+% % % sys.g0=[Sk01+Sk1/(1+(Sx2/SG1)^Sa)-Sx1,Sk02+Sk2/(1+(Sx1/SG2)^Sb)-Sx2,0,0,zeri]';
+% % % sys.g(:,1)=[0, 0, sym(1), 0, zeri]';
+% % % sys.g(:,2)=[0, 0, 0, sym(1), zeri]';
+% % % sys.hobs=[Sx1, Sx2];
+% % % %================================
+
+
+% % % %================================
+% % % %%%CASE STUDY TAC 2025
+% % % syms Sx1 Sx2 Sx3 Sx4 Sx5 Sx6 Sx7 Sx8 real
+% % % 
+% % % sys.x=[Sx1 Sx2 Sx3 Sx4 Sx5 Sx6 Sx7 Sx8]';
+% % % 
+% % % 
+% % % sys.g0=[Sx3 0 0 0 0 Sx8 0 Sx4*Sx5*Sx6]';
+% % % sys.g(:,1)=[Sx1 Sx7/Sx2 1 0 Sx4 Sx6 0 Sx7]';
+% % % sys.g(:,2)=[Sx2 Sx7/Sx1 1/Sx1 Sx2/Sx3 0 0 Sx6 Sx2]';
+% % % sys.g(:,3)=[0 0 0 Sx5 1 0 0 0]';
+% % % 
+% % % sys.hobs=[Sx1 Sx2 Sx3];
+% % % 
+% % % sys.deg=0;
+% % % sys.ht=[];
+% % % %================================
+
+
+
+% % % %================================
+% % % %TIME VARIANT SYSTEM
 % % % 
 % % % syms x1 x2 real
 % % % 
@@ -56,17 +71,6 @@ sys.hobs=[SV, STu+STi];
 % % % sys.hobs=[x1+St*x2];
 % % % %================================
 
-% % % %================================
-% % % %Toggle SWITCH
-% % % syms Sx1 Sx2 SG1 SG2 Sk01 Sk02 Sk1 Sk2 Sa Sb real
-% % % sys.x=[Sx1 Sx2 SG1 SG2 Sk01 Sk02 Sk1 Sk2 Sa Sb]';
-% % % 
-% % % zeri=zeros(1,6);
-% % % sys.g0=[Sk01+Sk1/(1+(Sx2/SG1)^Sa)-Sx1,Sk02+Sk2/(1+(Sx1/SG2)^Sb)-Sx2,0,0,zeri]';
-% % % sys.g(:,1)=[0, 0, sym(1), 0, zeri]';
-% % % sys.g(:,2)=[0, 0, 0, sym(1), zeri]';
-% % % sys.hobs=[Sx1, Sx2];
-% % % %================================
 
 % % % %================================
 % % % %TIME VARIANT SYSTEM
@@ -97,8 +101,10 @@ sys.hobs=[SV, STu+STi];
 % % % %================================
 
 
+
+
 % % % %================================
-% % % %CASE STUDY
+% % % %
 % % % syms Sx1 Sx2 Sx3 Sx4 Sx5 Sx6 Sx7 Sx8 real
 % % % 
 % % % sys.x=[Sx1 Sx2 Sx3 Sx4 Sx5 Sx6 Sx7 Sx8]';
@@ -111,6 +117,26 @@ sys.hobs=[SV, STu+STi];
 % % % sys.hobs=[Sx1 Sx2 Sx3];
 % % % %================================
 
+
+
+% % % %================================
+% % %     % Define symbolic variables (states)
+% % %     syms Sx1 Sx2 Sx3 Sx4 Sx5 Sx6 Sx7 Sx8 Sx9 Sx10 real
+% % % 
+% % %     % State vector (user modifies based on the system)
+% % %     sys.x = [Sx1 Sx2 Sx3 Sx4 Sx5 Sx6 Sx7 Sx8 Sx9 Sx10]'; 
+% % %     % g0 vector (drift)
+% % %     sys.g0 = [0 Sx5 Sx6 Sx7 0 Sx8 Sx9 0 Sx10 0]';
+% % % 
+% % %     % Input field matrices (g^j, where j=1,...,mw)
+% % %     sys.g(:,1) = [Sx1 1 Sx1/Sx2 Sx1/Sx3 0 0 0 0 0 0]';
+% % %     sys.g(:,2) = [Sx2 Sx2/Sx1 1 Sx2/Sx3 Sx5 1 Sx5/Sx6 0 0 0]';
+% % %     sys.g(:,3) = [Sx3 Sx3/Sx1 Sx3/Sx2 1 Sx6 Sx6/Sx5 1 Sx8 1 0]';
+% % %     sys.g(:,4) = [Sx4 Sx4/Sx1 Sx4/Sx2 Sx4/Sx3 Sx7 Sx7/Sx5 Sx7/Sx6 Sx9 Sx9/Sx8 1]';
+% % % 
+% % %     % Output vector (user defines outputs, e.g., functions of state and, for TV systems, also time)
+% % %     sys.hobs = [Sx1^2 + Sx2, Sx2, Sx3]; % Example, modify as needed
+% % % %================================
 
 
 
