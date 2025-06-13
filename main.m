@@ -1,3 +1,9 @@
+% ToolboxName - 
+%
+% Author: Agostino MArtinelli
+% Date: June 2025
+% License: MIT (see LICENSE.txt)
+
 clear all
 clc
 
