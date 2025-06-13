@@ -1,6 +1,6 @@
 % TUIO - This MATLAB toolbox computes the observability codistribution of a class of nonlinear dynamical systems solely driven by unknown inputs.
 %
-% Author: Agostino MArtinelli
+% Author: Agostino Martinelli
 % Date: June 2025
 % License: MIT (see LICENSE.txt)
 
