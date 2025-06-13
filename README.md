@@ -8,13 +8,13 @@ This MATLAB toolbox computes the **observability codistribution** of a class of 
 
 The system dynamics are assumed to be of the following form:
 
-\dot{x} = g_0(x, t) + \sum_{j=1}^{m_w} g^j(x, t) w_j
+\dot{x} = g^0(x, t) + \sum_{j=1}^{m_w} g^j(x, t) w_j
 
 where:
 - `x` is the system state vector,
 - `t` is time,
 - `wⱼ` are **unknown inputs**,
-- `g₀(x, t)` and `gʲ(x, t)` are analytic vector fields.
+- `g^0(x, t)` and `g^j(x, t)` are analytic vector fields.
 
 This structure covers a wide range of real-world systems where not all inputs can be measured or controlled.
 
