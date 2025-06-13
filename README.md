@@ -16,7 +16,7 @@ where:
 - `wⱼ` are **unknown inputs**,
 - `g^0(x, t)` and `g^j(x, t)` are analytic vector fields.
 
-This structure covers a wide range of real-world systems where not all inputs can be measured or controlled.
+This structure covers a wide range of real-world systems where the inputs cannot be measured (and controlled).
 
 ## 🚀 Features
 
@@ -32,14 +32,14 @@ This structure covers a wide range of real-world systems where not all inputs ca
 ## 📂 Structure
 
 - `initialize_system.m`: Defines the system dynamics and returns the required symbolic variables
-- `main_script.m`: Runs the observability analysis using the initialized system
+- `main.m`: Runs the observability analysis using the initialized system
 - `functions/`: Core functions for codistribution computation
 
 ## 📖 How to Use
 
 1. Clone or download the repository.
-2. Open `main_script.m` and define your system dynamics.
-3. Run the script to compute the observability codistribution.
+2. Open `initialize_system.m` and define your system dynamics.
+3. Run `main.m` to compute the observability codistribution.
 
 ## 🧑‍💻 Author
 
