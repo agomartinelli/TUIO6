@@ -143,7 +143,7 @@ sys.hobs=[SV, STu+STi];
 
 
     [n, m_w] = size(sys.g); 
-    sys.n = n;
+    sys.n = length(sys.x);
     sys.m_w = m_w; 
 
 end
