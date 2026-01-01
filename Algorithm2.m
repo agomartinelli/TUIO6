@@ -15,7 +15,7 @@ function [Finish, sysS, ord, theta] = Algorithm2(sys, ghat, Gkhat)
     
     if (CondGkhatVanish < sys.tool.zero)
         Finish = true;
-        [OBS, iter] = CodInvF(sys.x, ghat, sys.hobs);
+        [OBS, iter] = CodInvF(sys, ghat, sys.hobs);
         sysS.O = OBS.O;
         sysS.OE = OBS.OE;
         sysS.hobs = OBS.h;
