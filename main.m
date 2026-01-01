@@ -16,7 +16,7 @@ if sys.m_w == 0
     Continue = false;
     ContinueAfter = false;
     disp('No UI')
-    [OBS, iter] = CodInvF(sys.x, sys.g0, sys.hobs);
+    [OBS, iter] = CodInvF(sys, sys.g0, sys.hobs);
     sys.hobs = OBS.h;
     sys.O = OBS.O;
     sys.OE = OBS.OE;
