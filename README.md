@@ -2,21 +2,25 @@
 
 # Nonlinear System Observability Toolbox
 
-This MATLAB toolbox computes the **observability codistribution** of a class of nonlinear dynamical systems solely driven by unknown inputs.
+This MATLAB toolbox computes the **observability codistribution** for a class of nonlinear dynamical systems affected by unknown inputs.
 
 ## 📌 Problem Description
 
-The system dynamics are assumed to be of the following form:
+The considered system class is given by
 
-\dot{x} = g^0(x, t) + \sum_{j=1}^{m_w} g^j(x, t) w_j
+\dot{x} = g^0(x, t, u(t)) + \sum_{j=1}^{m_w} g^j(x, t, u(t)) w_j
 
 where:
-- `x` is the system state vector,
+- `x` is the state vector,
 - `t` is time,
-- `wⱼ` are **unknown inputs**,
-- `g^0(x, t)` and `g^j(x, t)` are analytic vector fields.
+- `u(t)` denotes **known (prescribed) control inputs (input trajectories)**,
+- `w_j` are **unknown inputs** (not measured and not available to the observer),
+- `g^0(x, t, u(t))` and `g^j(x, t, u(t))` are analytic vector fields.
 
-This structure covers a wide range of real-world systems where the inputs cannot be measured (and controlled).
+In this framework, control inputs are assumed to be known a priori and enter the system through prescribed trajectories. They may influence both the drift term and the unknown-input vector fields.
+
+Observability is defined with respect to these fixed input signals, while unknown inputs remain arbitrary external disturbances.
+
 
 ## 🚀 Features
 
